@@ -135,6 +135,6 @@ This project is created for demonstration purposes.
 
 ## Support
 
-For support, email support@gellish.com (example)
+For support, email support@axanail.com (example)
 
 # axanail

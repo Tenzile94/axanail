@@ -27,27 +27,27 @@ export default function Header() {
           {/* Logo */}
           <div className="flex-1 lg:flex-none text-center lg:text-left">
             <h1 className="text-3xl font-bold bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent animate-fade-in">
-              AxaNail
+              GELLISH
             </h1>
             <p className="text-xs text-gray-500 tracking-widest">PREMIUM GEL POLISH</p>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8 flex-1 justify-center">
-            <a href="#home" className="text-gray-700 hover:text-primary-600 transition-colors font-medium">
+            <a href="/" className="text-gray-700 hover:text-primary-600 transition-colors font-medium">
               Home
             </a>
-            <a href="#collections" className="text-gray-700 hover:text-primary-600 transition-colors font-medium">
+            <a href="/#collections" className="text-gray-700 hover:text-primary-600 transition-colors font-medium">
               Collections
             </a>
-            <a href="#new-arrivals" className="text-gray-700 hover:text-primary-600 transition-colors font-medium">
+            <a href="/#new-arrivals" className="text-gray-700 hover:text-primary-600 transition-colors font-medium">
               New Arrivals
             </a>
-            <a href="#bundles" className="text-gray-700 hover:text-primary-600 transition-colors font-medium">
+            <a href="/#bundles" className="text-gray-700 hover:text-primary-600 transition-colors font-medium">
               Bundles
             </a>
-            <a href="#about" className="text-gray-700 hover:text-primary-600 transition-colors font-medium">
-              About
+            <a href="/contact" className="text-gray-700 hover:text-primary-600 transition-colors font-medium">
+              Contact
             </a>
           </nav>
 
@@ -72,39 +72,39 @@ export default function Header() {
         {isMenuOpen && (
           <nav className="lg:hidden pb-4 space-y-4 animate-slide-down">
             <a
-              href="#home"
+              href="/"
               className="block text-gray-700 hover:text-primary-600 transition-colors font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
               Home
             </a>
             <a
-              href="#collections"
+              href="/#collections"
               className="block text-gray-700 hover:text-primary-600 transition-colors font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
               Collections
             </a>
             <a
-              href="#new-arrivals"
+              href="/#new-arrivals"
               className="block text-gray-700 hover:text-primary-600 transition-colors font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
               New Arrivals
             </a>
             <a
-              href="#bundles"
+              href="/#bundles"
               className="block text-gray-700 hover:text-primary-600 transition-colors font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
               Bundles
             </a>
             <a
-              href="#about"
+              href="/contact"
               className="block text-gray-700 hover:text-primary-600 transition-colors font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
-              About
+              Contact
             </a>
           </nav>
         )}

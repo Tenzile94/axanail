@@ -54,11 +54,11 @@ export default function Footer() {
           <div>
             <h4 className="text-white text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="hover:text-primary-400 transition-colors">About Us</a></li>
-              <li><a href="#" className="hover:text-primary-400 transition-colors">Collections</a></li>
-              <li><a href="#" className="hover:text-primary-400 transition-colors">New Arrivals</a></li>
-              <li><a href="#" className="hover:text-primary-400 transition-colors">Best Sellers</a></li>
-              <li><a href="#" className="hover:text-primary-400 transition-colors">Gift Cards</a></li>
+              <li><a href="/#about" className="hover:text-primary-400 transition-colors">About Us</a></li>
+              <li><a href="/#collections" className="hover:text-primary-400 transition-colors">Collections</a></li>
+              <li><a href="/#new-arrivals" className="hover:text-primary-400 transition-colors">New Arrivals</a></li>
+              <li><a href="/#bundles" className="hover:text-primary-400 transition-colors">Best Sellers</a></li>
+              <li><a href="/contact" className="hover:text-primary-400 transition-colors">Contact</a></li>
             </ul>
           </div>
 
@@ -66,10 +66,10 @@ export default function Footer() {
           <div>
             <h4 className="text-white text-lg font-semibold mb-4">Customer Service</h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="hover:text-primary-400 transition-colors">Contact Us</a></li>
+              <li><a href="/contact" className="hover:text-primary-400 transition-colors">Contact Us</a></li>
               <li><a href="#" className="hover:text-primary-400 transition-colors">Shipping Info</a></li>
               <li><a href="#" className="hover:text-primary-400 transition-colors">Returns</a></li>
-              <li><a href="#" className="hover:text-primary-400 transition-colors">FAQ</a></li>
+              <li><a href="/contact#faq" className="hover:text-primary-400 transition-colors">FAQ</a></li>
               <li><a href="#" className="hover:text-primary-400 transition-colors">Size Guide</a></li>
             </ul>
           </div>
@@ -88,7 +88,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <Mail size={18} className="flex-shrink-0" />
-                <span>support@gellish.com</span>
+                <span>support@axanail.com</span>
               </li>
             </ul>
           </div>
