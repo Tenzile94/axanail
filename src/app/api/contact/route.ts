@@ -23,16 +23,46 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Create transporter
+    // Check environment variables
+    if (!process.env.EMAIL_HOST || !process.env.EMAIL_USER || !process.env.EMAIL_PASSWORD) {
+      console.error('Missing email configuration')
+      return NextResponse.json(
+        { error: 'Email service is not configured. Please contact administrator.' },
+        { status: 500 }
+      )
+    }
+
+    const port = parseInt(process.env.EMAIL_PORT || '465')
+    
+    // Create transporter with improved settings for GoDaddy
     const transporter = nodemailer.createTransport({
       host: process.env.EMAIL_HOST,
-      port: parseInt(process.env.EMAIL_PORT || '587'),
-      secure: process.env.EMAIL_PORT === '465', // true for 465, false for other ports
+      port: port,
+      secure: port === 465, // true for 465, false for other ports
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASSWORD,
       },
+      // Additional settings for better compatibility
+      tls: {
+        rejectUnauthorized: false, // For development/testing
+        ciphers: 'SSLv3'
+      },
+      debug: true, // Enable debug output
+      logger: true // Log to console
     })
+
+    // Verify connection configuration
+    try {
+      await transporter.verify()
+      console.log('SMTP connection verified successfully')
+    } catch (verifyError) {
+      console.error('SMTP verification failed:', verifyError)
+      return NextResponse.json(
+        { error: 'Email service connection failed. Please check configuration.' },
+        { status: 500 }
+      )
+    }
 
     // Email content
     const mailOptions = {
@@ -162,16 +192,29 @@ Sent on ${new Date().toLocaleString()}
     }
 
     // Send email
-    await transporter.sendMail(mailOptions)
+    console.log('Attempting to send email to:', process.env.EMAIL_TO)
+    const info = await transporter.sendMail(mailOptions)
+    console.log('Email sent successfully:', info.messageId)
 
     return NextResponse.json(
-      { message: 'Email sent successfully' },
+      { message: 'Email sent successfully', messageId: info.messageId },
       { status: 200 }
     )
-  } catch (error) {
-    console.error('Error sending email:', error)
+  } catch (error: any) {
+    // Detailed error logging
+    console.error('=== Email Error Details ===')
+    console.error('Error message:', error.message)
+    console.error('Error code:', error.code)
+    console.error('Error command:', error.command)
+    console.error('Full error:', error)
+    
+    // Return user-friendly error message with some details
     return NextResponse.json(
-      { error: 'Failed to send email. Please try again later.' },
+      { 
+        error: 'Failed to send email. Please try again later.',
+        details: error.message || 'Unknown error',
+        code: error.code || 'UNKNOWN'
+      },
       { status: 500 }
     )
   }
