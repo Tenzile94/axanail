@@ -1,0 +1,109 @@
+═══════════════════════════════════════════════════════════
+  VERCEL ENVIRONMENT VARIABLES - GODADDY EMAIL SETUP
+═══════════════════════════════════════════════════════════
+
+📧 Your Email: contact@axanail.com
+🚀 Hosting: Vercel
+
+═══════════════════════════════════════════════════════════
+  STEP 1: ADD THESE TO VERCEL DASHBOARD
+═══════════════════════════════════════════════════════════
+
+Go to: https://vercel.com/dashboard
+→ Select your project
+→ Settings tab
+→ Environment Variables
+
+Add these 6 variables:
+
+┌─────────────────┬──────────────────────────────────────┐
+│ Variable Name   │ Value                                │
+├─────────────────┼──────────────────────────────────────┤
+│ EMAIL_HOST      │ smtpout.secureserver.net            │
+│ EMAIL_PORT      │ 465                                  │
+│ EMAIL_USER      │ contact@axanail.com                 │
+│ EMAIL_PASSWORD  │ [YOUR EMAIL PASSWORD]                │
+│ EMAIL_FROM      │ contact@axanail.com                 │
+│ EMAIL_TO        │ contact@axanail.com                 │
+└─────────────────┴──────────────────────────────────────┘
+
+⚠️  For each variable, select: Production ✓ Preview ✓ Development ✓
+
+═══════════════════════════════════════════════════════════
+  STEP 2: REDEPLOY
+═══════════════════════════════════════════════════════════
+
+After adding all variables:
+
+Option A: Push to Git
+   git add .
+   git commit -m "Configure email"
+   git push
+
+Option B: Manual Redeploy
+   Vercel Dashboard → Deployments → Redeploy
+
+═══════════════════════════════════════════════════════════
+  STEP 3: TEST
+═══════════════════════════════════════════════════════════
+
+1. Visit: https://your-domain.vercel.app/contact
+2. Fill out form
+3. Submit
+4. Check: contact@axanail.com inbox
+
+═══════════════════════════════════════════════════════════
+  GODADDY EMAIL PASSWORD
+═══════════════════════════════════════════════════════════
+
+If you need your email password:
+1. Go to: https://account.godaddy.com/
+2. Email & Office Dashboard
+3. Manage → Settings → Password
+
+Use EMAIL PASSWORD (not hosting password!)
+
+═══════════════════════════════════════════════════════════
+  TROUBLESHOOTING
+═══════════════════════════════════════════════════════════
+
+❌ No email received?
+   → Check spam folder
+   → Verify password is correct
+   → Check Vercel deployment logs
+
+❌ Authentication failed?
+   → Use full email: contact@axanail.com
+   → Use email password, not hosting password
+   → Try port 587 instead of 465
+
+❌ Check logs:
+   Vercel Dashboard → Deployments → Functions → /api/contact
+
+═══════════════════════════════════════════════════════════
+  ALTERNATIVE PORTS (if 465 doesn't work)
+═══════════════════════════════════════════════════════════
+
+Try: EMAIL_PORT = 587
+
+Then redeploy!
+
+═══════════════════════════════════════════════════════════
+
+✅ CHECKLIST:
+□ Added all 6 environment variables to Vercel
+□ Selected Production, Preview, Development for each
+□ Clicked Save for each variable
+□ Redeployed project
+□ Tested contact form
+□ Received email at contact@axanail.com
+
+═══════════════════════════════════════════════════════════
+
+📚 Full Guide: See VERCEL_GODADDY_SETUP.md
+
+🎉 Once configured, your contact form will send emails to
+   contact@axanail.com automatically!
+
+═══════════════════════════════════════════════════════════
+
