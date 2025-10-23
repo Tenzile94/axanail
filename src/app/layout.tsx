@@ -1,14 +1,24 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Playfair_Display, Montserrat } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
-const inter = Inter({ subsets: ['latin'] })
+const playfair = Playfair_Display({ 
+  subsets: ['latin'],
+  variable: '--font-playfair',
+  display: 'swap',
+})
+
+const montserrat = Montserrat({ 
+  subsets: ['latin'],
+  variable: '--font-montserrat',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
-  title: 'Gellish - Premium Gel Polish Collection',
-  description: 'Discover our stunning collection of premium gel polish colors for every style and occasion',
+  title: 'AXA Professional - Premium Gel Polish Collection',
+  description: 'Professional strength gel systems for discerning nail artists. Superior quality, flawless results.',
 }
 
 export default function RootLayout({
@@ -18,7 +28,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${montserrat.variable} ${playfair.variable} ${montserrat.className}`}>
         <Header />
         <main>{children}</main>
         <Footer />

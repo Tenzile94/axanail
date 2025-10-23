@@ -9,12 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "14.2.5",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
     "framer-motion": "^11.3.19",
     "lucide-react": "^0.424.0",
-    "nodemailer": "^6.9.7"
+    "next": "14.2.5",
+    "nodemailer": "^6.9.7",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sharp": "^0.34.4"
   },
   "devDependencies": {
     "@types/node": "^20.14.12",
@@ -27,4 +28,3 @@
     "typescript": "^5.5.4"
   }
 }
-
