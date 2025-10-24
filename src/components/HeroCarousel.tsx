@@ -12,7 +12,7 @@ const carouselImages = [
     product: 'BUILDER GEL',
   },
   {
-    url: '/img-min/bg.png',
+    url: '/img-min/gel_bg2.jpg',
     title: 'AXA Base Gel',
     subtitle: 'Strong adhesion. Long-lasting wear. Reliable performance.',
     product: 'BASE GEL',

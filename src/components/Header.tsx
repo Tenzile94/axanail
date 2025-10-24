@@ -6,6 +6,24 @@ import { Menu, X, Search, ShoppingBag, Heart, User, Mail } from 'lucide-react'
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault()
+    const element = document.getElementById(targetId)
+    if (element) {
+      const headerOffset = 100 // Account for sticky header
+      const elementPosition = element.getBoundingClientRect().top
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      })
+      
+      // Close mobile menu if open
+      setIsMenuOpen(false)
+    }
+  }
+
   return (
     <header className="sticky top-0 z-50 bg-black/95 backdrop-blur-lg border-b border-[#d4af37]/20">
       {/* Top Banner */}
@@ -34,16 +52,32 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8 flex-1 justify-center">
-            <a href="/" className="text-gray-300 hover:text-[#d4af37] transition-colors font-medium tracking-wide uppercase text-sm">
+            <a 
+              href="/#home" 
+              onClick={(e) => handleSmoothScroll(e, 'home')}
+              className="text-gray-300 hover:text-[#d4af37] transition-colors font-medium tracking-wide uppercase text-sm cursor-pointer"
+            >
               Home
             </a>
-            <a href="/#collections" className="text-gray-300 hover:text-[#d4af37] transition-colors font-medium tracking-wide uppercase text-sm">
+            <a 
+              href="/#collections" 
+              onClick={(e) => handleSmoothScroll(e, 'collections')}
+              className="text-gray-300 hover:text-[#d4af37] transition-colors font-medium tracking-wide uppercase text-sm cursor-pointer"
+            >
               Collections
             </a>
-            <a href="/#products" className="text-gray-300 hover:text-[#d4af37] transition-colors font-medium tracking-wide uppercase text-sm">
+            <a 
+              href="/#products" 
+              onClick={(e) => handleSmoothScroll(e, 'products')}
+              className="text-gray-300 hover:text-[#d4af37] transition-colors font-medium tracking-wide uppercase text-sm cursor-pointer"
+            >
               Products
             </a>
-            <a href="/#about" className="text-gray-300 hover:text-[#d4af37] transition-colors font-medium tracking-wide uppercase text-sm">
+            <a 
+              href="/#about" 
+              onClick={(e) => handleSmoothScroll(e, 'about')}
+              className="text-gray-300 hover:text-[#d4af37] transition-colors font-medium tracking-wide uppercase text-sm cursor-pointer"
+            >
               About
             </a>
             <a 
@@ -75,30 +109,30 @@ export default function Header() {
         {isMenuOpen && (
           <nav className="lg:hidden pb-4 space-y-4 animate-slide-down border-t border-[#d4af37]/20 pt-4">
             <a
-              href="/"
-              className="block text-gray-300 hover:text-[#d4af37] transition-colors font-medium uppercase text-sm"
-              onClick={() => setIsMenuOpen(false)}
+              href="/#home"
+              onClick={(e) => handleSmoothScroll(e, 'home')}
+              className="block text-gray-300 hover:text-[#d4af37] transition-colors font-medium uppercase text-sm cursor-pointer"
             >
               Home
             </a>
             <a
               href="/#collections"
-              className="block text-gray-300 hover:text-[#d4af37] transition-colors font-medium uppercase text-sm"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={(e) => handleSmoothScroll(e, 'collections')}
+              className="block text-gray-300 hover:text-[#d4af37] transition-colors font-medium uppercase text-sm cursor-pointer"
             >
               Collections
             </a>
             <a
               href="/#products"
-              className="block text-gray-300 hover:text-[#d4af37] transition-colors font-medium uppercase text-sm"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={(e) => handleSmoothScroll(e, 'products')}
+              className="block text-gray-300 hover:text-[#d4af37] transition-colors font-medium uppercase text-sm cursor-pointer"
             >
               Products
             </a>
             <a
-              href="/#about"
-              className="block text-gray-300 hover:text-[#d4af37] transition-colors font-medium uppercase text-sm"
-              onClick={() => setIsMenuOpen(false)}
+              href="#about"
+              onClick={(e) => handleSmoothScroll(e, 'about')}
+              className="block text-gray-300 hover:text-[#d4af37] transition-colors font-medium uppercase text-sm cursor-pointer"
             >
               About
             </a>

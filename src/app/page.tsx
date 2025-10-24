@@ -60,6 +60,69 @@ const advantages = [
   },
 ]
 
+const bestsellers = [
+  {
+    id: 1,
+    name: 'Milky White Builder',
+    description: 'Perfect coverage builder gel with a natural milky finish for elegant French and overlay applications.',
+    volume: '15 ml',
+    imageClosed: '/products/milkywhite.jpeg',
+    imageOpened: '/products/milky2.jpeg',
+    altText: 'Milky White Builder Gel',
+    priority: true,
+  },
+  {
+    id: 2,
+    name: 'Nude Cover Base',
+    description: 'Universal nude base with excellent coverage and self-leveling properties for flawless natural looks.',
+    volume: '30 ml',
+    imageClosed: '/products/nude.jpeg',
+    imageOpened: '/products/nude2.jpeg',
+    altText: 'Nude Cover Base Gel',
+    priority: false,
+  },
+  {
+    id: 3,
+    name: 'Pink Builder',
+    description: 'Classic pink builder gel with superior strength and flexibility for durable nail extensions.',
+    volume: '50 ml',
+    imageClosed: '/products/pink.jpeg',
+    imageOpened: '/products/pink2.jpeg',
+    altText: 'Pink Builder Gel',
+    priority: false,
+  },
+  {
+    id: 4,
+    name: 'Strong Base Gel',
+    description: 'Ultimate adhesion base coat providing long-lasting wear and protection for natural nails.',
+    volume: '15 ml',
+    imageClosed: '/products/strongbase.jpeg',
+    imageOpened: '/products/strongbase2.jpeg',
+    altText: 'Strong Base Gel',
+    priority: false,
+  },
+  {
+    id: 5,
+    name: 'Mirror Top Coat',
+    description: 'High-gloss no-wipe top coat delivering brilliant mirror shine and superior scratch resistance.',
+    volume: '15 ml',
+    imageClosed: '/products/topcoat2.jpeg',
+    imageOpened: '/products/topcoat.jpeg',
+    altText: 'Mirror Top Coat',
+    priority: false,
+  },
+  {
+    id: 6,
+    name: 'Crystal Clear Builder',
+    description: 'Transparent builder gel with exceptional clarity for encapsulations and artistic nail designs.',
+    volume: '50 ml',
+    imageClosed: '/products/transparent.jpeg',
+    imageOpened: '/products/transparent2.jpeg',
+    altText: 'Crystal Clear Builder',
+    priority: false,
+  },
+]
+
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const featuredProducts = products.filter((p) => p.featured)
@@ -167,7 +230,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="py-32 bg-gradient-to-b from-black via-zinc-950 to-black relative overflow-hidden">
+      <section id="about" className="py-32 bg-gradient-to-b from-black via-zinc-950 to-black relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIxMjEyMSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-10"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-5xl mx-auto">
@@ -231,8 +294,8 @@ export default function Home() {
                         Advanced chemistry delivering superior adhesion, extended wear time, and brilliant, long-lasting shine.
                       </p>
                     </div>
-                  </div>
-                </div>
+          </div>
+        </div>
 
                 <div className="bg-gradient-to-br from-zinc-900 to-black p-8 rounded-2xl border border-[#d4af37]/30 hover:border-[#d4af37] transition-all duration-300">
                   <div className="flex items-start gap-4">
@@ -254,7 +317,7 @@ export default function Home() {
       </section>
 
       {/* CATEGORIES Section */}
-      <section className="py-32 bg-black relative overflow-hidden">
+      <section id="collections" className="py-32 bg-black relative overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="text-center mb-20 animate-fade-in-up">
             <span className="text-[#d4af37] font-bold uppercase tracking-[0.3em] text-sm">
@@ -384,13 +447,13 @@ export default function Home() {
                   <ArrowRight size={20} />
                 </a>
               </div>
-            </div>
+          </div>
           </div>
         </div>
       </section>
 
       {/* BESTSELLERS Section */}
-      <section className="py-32 bg-gradient-to-b from-black via-zinc-950 to-black border-y border-[#d4af37]/20">
+      <section id="products" className="py-32 bg-gradient-to-b from-black via-zinc-950 to-black border-y border-[#d4af37]/20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-20 animate-fade-in-up">
             <span className="text-[#d4af37] font-bold uppercase tracking-[0.3em] text-sm">
@@ -405,241 +468,54 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {/* Product Card 1 - Milky White Builder */}
-            <div className="group bg-gradient-to-br from-zinc-900 to-black rounded-2xl overflow-hidden border border-[#d4af37]/30 hover:border-[#d4af37] transition-all duration-500 hover:shadow-2xl hover:shadow-[#d4af37]/20">
-              <div className="aspect-square overflow-hidden bg-zinc-800 relative">
-                <Image 
-                  src="/products/milkywhite.jpeg" 
-                  alt="Milky White Builder Gel"
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover transition-opacity duration-1000 ease-in-out group-hover:opacity-0"
-                  priority={true}
-                  quality={85}
-                  placeholder="blur"
-                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAKAAoDASIAAhEBAxEB/8QAFwABAAMAAAAAAAAAAAAAAAAAAAECA//EABQQAQAAAAAAAAAAAAAAAAAAAAD/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJMCMLAAX//Z"
-                />
-                <Image 
-                  src="/products/milky2.jpeg" 
-                  alt="Milky White Builder Gel - Opened"
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover opacity-0 transition-opacity duration-1000 ease-in-out group-hover:opacity-100"
-                  priority={false}
-                  quality={85}
-                />
-              </div>
-              <div className="p-8">
-                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[#d4af37] transition-colors">
-                  Milky White Builder
-                </h3>
-                <p className="text-gray-400 mb-4 leading-relaxed">
-                  Perfect coverage builder gel with a natural milky finish for elegant French and overlay applications.
-                </p>
-                <div className="flex items-center gap-2 mb-6">
-                  <span className="text-[#d4af37] font-bold text-lg">Volume:</span>
-                  <span className="text-white font-semibold text-lg">15 ml</span>
+            {bestsellers.map((product) => (
+              <div 
+                key={product.id}
+                className="group bg-gradient-to-br from-zinc-900 to-black rounded-2xl overflow-hidden border border-[#d4af37]/30 hover:border-[#d4af37] transition-all duration-500 hover:shadow-2xl hover:shadow-[#d4af37]/20"
+              >
+                <div className="aspect-square overflow-hidden bg-zinc-800 relative">
+                  <Image 
+                    src={product.imageClosed} 
+                    alt={product.altText}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover absolute inset-0 transition-opacity duration-1000 ease-in-out group-hover:opacity-0"
+                    priority={product.priority}
+                    quality={85}
+                    placeholder="blur"
+                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAKAAoDASIAAhEBAxEB/8QAFwABAAMAAAAAAAAAAAAAAAAAAAECA//EABQQAQAAAAAAAAAAAAAAAAAAAAD/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJMCMLAAX//Z"
+                  />
+                  <Image 
+                    src={product.imageOpened} 
+                    alt={`${product.altText} - Opened`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out group-hover:opacity-100"
+                    priority={false}
+                    quality={85}
+                  />
                 </div>
-                <a 
-                  href="/contact"
-                  className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#d4af37] to-[#f0d060] text-black px-6 py-4 rounded-full font-bold hover:shadow-lg hover:shadow-[#d4af37]/50 hover:scale-105 transition-all duration-300 uppercase tracking-wide"
-                >
-                  <Mail size={20} />
-                  Contact Us
-                </a>
-              </div>
-            </div>
-
-            {/* Product Card 2 - Nude Cover Base */}
-            <div className="group bg-gradient-to-br from-zinc-900 to-black rounded-2xl overflow-hidden border border-[#d4af37]/30 hover:border-[#d4af37] transition-all duration-500 hover:shadow-2xl hover:shadow-[#d4af37]/20">
-              <div className="aspect-square overflow-hidden bg-zinc-800 relative">
-                <Image 
-                  src="/products/nude.jpeg" 
-                  alt="Nude Cover Base Gel"
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover transition-opacity duration-1000 ease-in-out group-hover:opacity-0"
-                  priority={false}
-                  quality={85}
-                />
-                <Image 
-                  src="/products/nude2.jpeg" 
-                  alt="Nude Cover Base Gel - Opened"
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover opacity-0 transition-opacity duration-1000 ease-in-out group-hover:opacity-100"
-                  priority={false}
-                  quality={85}
-                />
-              </div>
-              <div className="p-8">
-                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[#d4af37] transition-colors">
-                  Nude Cover Base
-                </h3>
-                <p className="text-gray-400 mb-4 leading-relaxed">
-                  Universal nude base with excellent coverage and self-leveling properties for flawless natural looks.
-                </p>
-                <div className="flex items-center gap-2 mb-6">
-                  <span className="text-[#d4af37] font-bold text-lg">Volume:</span>
-                  <span className="text-white font-semibold text-lg">30 ml</span>
-                </div>
-                <a 
-                  href="/contact"
-                  className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#d4af37] to-[#f0d060] text-black px-6 py-4 rounded-full font-bold hover:shadow-lg hover:shadow-[#d4af37]/50 hover:scale-105 transition-all duration-300 uppercase tracking-wide"
-                >
-                  <Mail size={20} />
-                  Contact Us
-                </a>
-              </div>
-            </div>
-
-            {/* Product Card 3 - Pink Builder */}
-            <div className="group bg-gradient-to-br from-zinc-900 to-black rounded-2xl overflow-hidden border border-[#d4af37]/30 hover:border-[#d4af37] transition-all duration-500 hover:shadow-2xl hover:shadow-[#d4af37]/20">
-              <div className="aspect-square overflow-hidden bg-zinc-800 relative">
-                <Image 
-                  src="/products/pink.jpeg" 
-                  alt="Pink Builder Gel"
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover transition-opacity duration-1000 ease-in-out group-hover:opacity-0"
-                  priority={false}
-                  quality={85}
-                />
-                <Image 
-                  src="/products/pink2.jpeg" 
-                  alt="Pink Builder Gel - Opened"
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover opacity-0 transition-opacity duration-1000 ease-in-out group-hover:opacity-100"
-                  priority={false}
-                  quality={85}
-                />
-              </div>
-              <div className="p-8">
-                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[#d4af37] transition-colors">
-                  Pink Builder
-                </h3>
-                <p className="text-gray-400 mb-4 leading-relaxed">
-                  Classic pink builder gel with superior strength and flexibility for durable nail extensions.
-                </p>
-                <div className="flex items-center gap-2 mb-6">
-                  <span className="text-[#d4af37] font-bold text-lg">Volume:</span>
-                  <span className="text-white font-semibold text-lg">50 ml</span>
-                </div>
-                <a 
-                  href="/contact"
-                  className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#d4af37] to-[#f0d060] text-black px-6 py-4 rounded-full font-bold hover:shadow-lg hover:shadow-[#d4af37]/50 hover:scale-105 transition-all duration-300 uppercase tracking-wide"
-                >
-                  <Mail size={20} />
-                  Contact Us
-                </a>
-              </div>
-            </div>
-
-            {/* Product Card 4 - Strong Base Gel */}
-            <div className="group bg-gradient-to-br from-zinc-900 to-black rounded-2xl overflow-hidden border border-[#d4af37]/30 hover:border-[#d4af37] transition-all duration-500 hover:shadow-2xl hover:shadow-[#d4af37]/20">
-              <div className="aspect-square overflow-hidden bg-zinc-800 relative">
-                <img 
-                  src="/products/strongbase.jpeg" 
-                  alt="Strong Base Gel"
-                  className="w-full h-full object-cover absolute inset-0 transition-opacity duration-1000 ease-in-out group-hover:opacity-0"
-                />
-                <img 
-                  src="/products/strongbase2.jpeg" 
-                  alt="Strong Base Gel - Opened"
-                  className="w-full h-full object-cover absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out group-hover:opacity-100"
-                />
-              </div>
-              <div className="p-8">
-                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[#d4af37] transition-colors">
-                  Strong Base Gel
-                </h3>
-                <p className="text-gray-400 mb-4 leading-relaxed">
-                  Ultimate adhesion base coat providing long-lasting wear and protection for natural nails.
-                </p>
-                <div className="flex items-center gap-2 mb-6">
-                  <span className="text-[#d4af37] font-bold text-lg">Volume:</span>
-                  <span className="text-white font-semibold text-lg">15 ml</span>
-          </div>
-                <a 
-                  href="/contact"
-                  className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#d4af37] to-[#f0d060] text-black px-6 py-4 rounded-full font-bold hover:shadow-lg hover:shadow-[#d4af37]/50 hover:scale-105 transition-all duration-300 uppercase tracking-wide"
-                >
-                  <Mail size={20} />
-                  Contact Us
-                </a>
-          </div>
-        </div>
-
-            {/* Product Card 5 - Mirror Top Coat */}
-            <div className="group bg-gradient-to-br from-zinc-900 to-black rounded-2xl overflow-hidden border border-[#d4af37]/30 hover:border-[#d4af37] transition-all duration-500 hover:shadow-2xl hover:shadow-[#d4af37]/20">
-              <div className="aspect-square overflow-hidden bg-zinc-800 relative">
-                <img 
-                  src="/products/topcoat.jpeg" 
-                  alt="Mirror Top Coat"
-                  className="w-full h-full object-cover absolute inset-0 transition-opacity duration-1000 ease-in-out group-hover:opacity-0"
-                />
-                <img 
-                  src="/products/topcoat2.jpeg" 
-                  alt="Mirror Top Coat - Opened"
-                  className="w-full h-full object-cover absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out group-hover:opacity-100"
-                />
-              </div>
-              <div className="p-8">
-                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[#d4af37] transition-colors">
-                  Mirror Top Coat
-                </h3>
-                <p className="text-gray-400 mb-4 leading-relaxed">
-                  High-gloss no-wipe top coat delivering brilliant mirror shine and superior scratch resistance.
-                </p>
-                <div className="flex items-center gap-2 mb-6">
-                  <span className="text-[#d4af37] font-bold text-lg">Volume:</span>
-                  <span className="text-white font-semibold text-lg">15 ml</span>
-                </div>
-                <a 
-                  href="/contact"
-                  className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#d4af37] to-[#f0d060] text-black px-6 py-4 rounded-full font-bold hover:shadow-lg hover:shadow-[#d4af37]/50 hover:scale-105 transition-all duration-300 uppercase tracking-wide"
-                >
-                  <Mail size={20} />
-                  Contact Us
-                </a>
-              </div>
-            </div>
-
-            {/* Product Card 6 - Crystal Clear Builder */}
-            <div className="group bg-gradient-to-br from-zinc-900 to-black rounded-2xl overflow-hidden border border-[#d4af37]/30 hover:border-[#d4af37] transition-all duration-500 hover:shadow-2xl hover:shadow-[#d4af37]/20">
-              <div className="aspect-square overflow-hidden bg-zinc-800 relative">
-                <img 
-                  src="/products/transparent.jpeg" 
-                  alt="Crystal Clear Builder"
-                  className="w-full h-full object-cover absolute inset-0 transition-opacity duration-1000 ease-in-out group-hover:opacity-0"
-                />
-                <img 
-                  src="/products/transparent2.jpeg" 
-                  alt="Crystal Clear Builder - Opened"
-                  className="w-full h-full object-cover absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out group-hover:opacity-100"
-                />
-              </div>
-              <div className="p-8">
-                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[#d4af37] transition-colors">
-                  Crystal Clear Builder
+                <div className="p-8">
+                  <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[#d4af37] transition-colors">
+                    {product.name}
                   </h3>
-                <p className="text-gray-400 mb-4 leading-relaxed">
-                  Transparent builder gel with exceptional clarity for encapsulations and artistic nail designs.
-                </p>
-                <div className="flex items-center gap-2 mb-6">
-                  <span className="text-[#d4af37] font-bold text-lg">Volume:</span>
-                  <span className="text-white font-semibold text-lg">50 ml</span>
+                  <p className="text-gray-400 mb-4 leading-relaxed">
+                    {product.description}
+                  </p>
+                  <div className="flex items-center gap-2 mb-6">
+                    <span className="text-[#d4af37] font-bold text-lg">Volume:</span>
+                    <span className="text-white font-semibold text-lg">{product.volume}</span>
+                  </div>
+                  <a 
+                    href="/contact"
+                    className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#d4af37] to-[#f0d060] text-black px-6 py-4 rounded-full font-bold hover:shadow-lg hover:shadow-[#d4af37]/50 hover:scale-105 transition-all duration-300 uppercase tracking-wide"
+                  >
+                    <Mail size={20} />
+                    Contact Us
+                  </a>
                 </div>
-                <a 
-                  href="/contact"
-                  className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#d4af37] to-[#f0d060] text-black px-6 py-4 rounded-full font-bold hover:shadow-lg hover:shadow-[#d4af37]/50 hover:scale-105 transition-all duration-300 uppercase tracking-wide"
-                >
-                  <Mail size={20} />
-                  Contact Us
-                </a>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -841,7 +717,7 @@ export default function Home() {
       </section>
 
       {/* Final CTA */}
-      <section id="about" className="relative py-32 overflow-hidden border-t border-[#d4af37]/20">
+      <section  className="relative py-32 overflow-hidden border-t border-[#d4af37]/20">
         <div className="absolute inset-0 bg-gradient-to-br from-zinc-950 via-black to-zinc-900"></div>
         
         {/* Decorative Elements */}
