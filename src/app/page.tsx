@@ -841,33 +841,42 @@ export default function Home() {
       </section>
 
       {/* Final CTA */}
-      <section id="about" className="py-32 bg-gradient-to-b from-zinc-950 via-black to-zinc-950 relative overflow-hidden border-t border-[#d4af37]/20">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIxMjEyMSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-20"></div>
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <div className="animate-fade-in-up">
-            <span className="text-[#d4af37] font-bold uppercase tracking-[0.3em] text-sm mb-6 block">
-              Join the Elite
-            </span>
-            <h2 className="text-6xl lg:text-8xl font-bold mb-8">
-              <span className="text-white">Elevate Your</span>
-              <span className="block text-gold-gradient luxury-shine mt-2">
-                Artistry
-              </span>
+      <section id="about" className="relative py-32 overflow-hidden border-t border-[#d4af37]/20">
+        <div className="absolute inset-0 bg-gradient-to-br from-zinc-950 via-black to-zinc-900"></div>
+        
+        {/* Decorative Elements */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-[#d4af37] rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#f0d060] rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="animate-fade-in-up">
+              <h2 className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+                Professional <span className="text-gold-gradient luxury-shine">Excellence</span>
           </h2>
-            <p className="text-2xl lg:text-3xl mb-12 max-w-4xl mx-auto text-gray-300 font-light leading-relaxed">
-              Experience the AXA difference. Where professional excellence meets uncompromising quality.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <a 
-                href="/contact"
-                className="bg-gradient-to-r from-[#d4af37] to-[#f0d060] text-black px-12 py-6 rounded-full font-bold text-xl hover:scale-105 transition-all duration-300 shadow-2xl shadow-[#d4af37]/30 flex items-center gap-3 uppercase tracking-wide"
-              >
-                <Mail size={24} />
-                Contact Us Today
-              </a>
-              <button className="border-2 border-[#d4af37] text-[#d4af37] px-12 py-6 rounded-full font-bold text-xl hover:bg-[#d4af37]/10 transition-all duration-300 uppercase tracking-wide">
-                Learn More
-          </button>
+              <p className="text-2xl text-gray-300 mb-12 font-light leading-relaxed">
+                Premium materials for maximum control.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                <a
+                  href="/contact"
+                  className="inline-flex items-center gap-3 bg-gradient-to-r from-[#d4af37] to-[#f0d060] text-black px-12 py-6 rounded-full font-bold text-xl hover:scale-105 hover:shadow-2xl hover:shadow-[#d4af37]/50 transition-all duration-300 uppercase tracking-wider"
+                >
+                  <Mail size={28} />
+                  Contact Us
+                </a>
+                
+                <a
+                  href="mailto:contact@axanail.com"
+                  className="inline-flex items-center gap-3 border-2 border-[#d4af37] text-[#d4af37] px-12 py-6 rounded-full font-bold text-xl hover:bg-[#d4af37]/10 hover:scale-105 transition-all duration-300 uppercase tracking-wider"
+                >
+                  <Mail size={28} />
+                  Email Direct
+                </a>
+              </div>
             </div>
           </div>
         </div>

@@ -1,64 +1,48 @@
+// app/api/contact/route.ts
 import { NextRequest, NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
+
+// Ensure Node runtime (Nodemailer won't work on Edge)
+export const runtime = 'nodejs'
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { name, email, phone, address, product, message } = body
+    const { name, email, phone, address, product, message } = body ?? {}
 
-    // --- Validation ---
     if (!name || !email || !message) {
-      return NextResponse.json(
-        { error: 'Name, email, and message are required.' },
-        { status: 400 }
-      )
+      return NextResponse.json({ error: 'Name, email, and message are required.' }, { status: 400 })
     }
-
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!emailRegex.test(email)) {
-      return NextResponse.json(
-        { error: 'Invalid email format.' },
-        { status: 400 }
-      )
+      return NextResponse.json({ error: 'Invalid email format.' }, { status: 400 })
     }
 
-    // --- Environment Check ---
-    const { EMAIL_HOST, EMAIL_PORT, EMAIL_USER, EMAIL_PASSWORD, EMAIL_FROM, EMAIL_TO } = process.env
-    
+    // Read and trim envs to avoid trailing spaces/newlines causing 535
+    const EMAIL_HOST = process.env.EMAIL_HOST?.trim()
+    const EMAIL_PORT = Number(process.env.EMAIL_PORT || 587)
+    const EMAIL_USER = process.env.EMAIL_USER?.trim()        // full mailbox address
+    const EMAIL_PASSWORD = process.env.EMAIL_PASSWORD ?? ''  // raw password, no quotes
+    const EMAIL_FROM = (process.env.EMAIL_FROM || EMAIL_USER)?.trim()
+    const EMAIL_TO = (process.env.EMAIL_TO || 'contact@axanail.com')?.trim()
+
     if (!EMAIL_HOST || !EMAIL_USER || !EMAIL_PASSWORD) {
-      console.error('❌ Missing email configuration:', {
-        hasHost: !!EMAIL_HOST,
-        hasUser: !!EMAIL_USER,
-        hasPassword: !!EMAIL_PASSWORD,
-      })
-      return NextResponse.json(
-        { 
-          error: 'Email service not configured. Please contact support.',
-          details: 'Missing SMTP configuration'
-        },
-        { status: 500 }
-      )
+      console.error('Missing SMTP config', { hasHost: !!EMAIL_HOST, hasUser: !!EMAIL_USER, hasPass: !!EMAIL_PASSWORD })
+      return NextResponse.json({ error: 'Email service not configured.' }, { status: 500 })
     }
 
-    const port = parseInt(EMAIL_PORT || '587')
-    console.log('📧 Email Configuration:', {
-      host: EMAIL_HOST,
-      port,
-      user: EMAIL_USER,
-      from: EMAIL_FROM || EMAIL_USER,
-      to: EMAIL_TO || 'contact@axanail.com',
-    })
-
-    // --- Create Transporter ---
     const transporter = nodemailer.createTransport({
-      host: EMAIL_HOST,
-      port,
-      secure: port === 465, // true for 465, false for other ports
+      host: EMAIL_HOST,                 // For M365: 'smtp.office365.com'
+      port: EMAIL_PORT,                 // For M365: 587
+      secure: EMAIL_PORT === 465,       // 587 -> STARTTLS (secure: false)
+      requireTLS: EMAIL_PORT === 587,   // force STARTTLS upgrade on 587
       auth: {
-        user: EMAIL_USER,
+        user: EMAIL_USER,               // must be full mailbox (you@domain.com)
         pass: EMAIL_PASSWORD,
       },
       tls: {
+        minVersion: 'TLSv1.2',
+        // keep this true in prod; if testing self-signed, you can set false temporarily
         rejectUnauthorized: process.env.NODE_ENV === 'production',
       },
     })

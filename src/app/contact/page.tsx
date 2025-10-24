@@ -125,7 +125,7 @@ export default function ContactPage() {
                   </div>
 
                 {/* Address */}
-                <div className="bg-gradient-to-br from-zinc-900 to-black p-8 rounded-2xl border border-[#d4af37]/30 hover:border-[#d4af37] transition-all duration-300 group">
+                {/* <div className="bg-gradient-to-br from-zinc-900 to-black p-8 rounded-2xl border border-[#d4af37]/30 hover:border-[#d4af37] transition-all duration-300 group">
                     <div className="flex items-start gap-4">
                     <div className="w-14 h-14 bg-gradient-to-r from-[#d4af37] to-[#f0d060] rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                       <MapPin className="text-black" size={24} />
@@ -138,10 +138,10 @@ export default function ContactPage() {
                       <p className="text-gray-400 text-sm mt-2">United States</p>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
 
                 {/* Business Hours */}
-                <div className="bg-gradient-to-br from-zinc-900 to-black p-8 rounded-2xl border border-[#d4af37]/30 hover:border-[#d4af37] transition-all duration-300 group">
+                {/* <div className="bg-gradient-to-br from-zinc-900 to-black p-8 rounded-2xl border border-[#d4af37]/30 hover:border-[#d4af37] transition-all duration-300 group">
                     <div className="flex items-start gap-4">
                     <div className="w-14 h-14 bg-gradient-to-r from-[#d4af37] to-[#f0d060] rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                       <Clock className="text-black" size={24} />
@@ -164,7 +164,7 @@ export default function ContactPage() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
 
                 {/* International */}
                 <div className="bg-gradient-to-r from-[#d4af37]/10 to-[#f0d060]/10 p-8 rounded-2xl border border-[#d4af37]/30">
