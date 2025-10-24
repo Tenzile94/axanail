@@ -88,20 +88,15 @@ export default function Header() {
             </a>
           </nav>
 
-          {/* Icons */}
-          <div className="flex items-center space-x-4">
-            <button className="text-gray-300 hover:text-[#d4af37] transition-colors hidden md:block">
-              <Search size={20} />
-            </button>
-            <button className="text-gray-300 hover:text-[#d4af37] transition-colors hidden md:block">
-              <Heart size={20} />
-            </button>
-            <button className="text-gray-300 hover:text-[#d4af37] transition-colors hidden md:block">
-              <User size={20} />
-            </button>
-            <button className="text-gray-300 hover:text-[#d4af37] transition-colors">
-              <ShoppingBag size={20} />
-            </button>
+          {/* Contact Info */}
+          <div className="flex items-center space-x-2">
+            <Mail size={18} className="text-[#d4af37]" />
+            <a 
+              href="mailto:info@axaprofessional.com" 
+              className="text-gray-300 hover:text-[#d4af37] transition-colors text-sm font-medium"
+            >
+              contact@axanail.com
+            </a>
           </div>
         </div>
 

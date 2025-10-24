@@ -37,7 +37,7 @@ export default function Footer() {
               <li><a href="/#about" className="hover:text-[#d4af37] transition-colors text-gray-400">About AXA</a></li>
               <li><a href="/#collections" className="hover:text-[#d4af37] transition-colors text-gray-400">Collections</a></li>
               <li><a href="/#products" className="hover:text-[#d4af37] transition-colors text-gray-400">Products</a></li>
-              <li><a href="/#bundles" className="hover:text-[#d4af37] transition-colors text-gray-400">Professional Kits</a></li>
+           
               <li><a href="/contact" className="hover:text-[#d4af37] transition-colors text-gray-400">Contact</a></li>
             </ul>
           </div>
@@ -61,13 +61,13 @@ export default function Footer() {
                 <MapPin size={18} className="mt-1 flex-shrink-0 text-[#d4af37]" />
                 <span className="text-gray-400">123 Professional Boulevard<br/>Suite 400, NC 12345</span>
               </li>
-              <li className="flex items-center gap-3">
+              {/* <li className="flex items-center gap-3">
                 <Phone size={18} className="flex-shrink-0 text-[#d4af37]" />
                 <span className="text-gray-400">+1 (555) 123-4567</span>
-              </li>
+              </li> */}
               <li className="flex items-center gap-3">
                 <Mail size={18} className="flex-shrink-0 text-[#d4af37]" />
-                <span className="text-gray-400">info@axaprofessional.com</span>
+                <span className="text-gray-400">contact@axanail.com</span>
               </li>
             </ul>
           </div>

@@ -233,8 +233,7 @@ export default function TermsAndConditions() {
                 If you have any questions about these Terms and Conditions, please don't hesitate to contact us.
               </p>
               <div className="space-y-2 text-gray-300 mb-8">
-                <p><strong className="text-white">Email:</strong> legal@axaprofessional.com</p>
-                <p><strong className="text-white">Phone:</strong> +1 (555) 123-4567</p>
+                <p><strong className="text-white">Email:</strong> contact@axanail.com</p>
               </div>
               <Link 
                 href="/contact"

@@ -215,8 +215,7 @@ export default function PrivacyPolicy() {
                 If you have any questions about this Privacy Policy or wish to exercise your privacy rights, please contact us:
               </p>
               <div className="space-y-2 text-gray-300">
-                <p><strong className="text-white">Email:</strong> privacy@axaprofessional.com</p>
-                <p><strong className="text-white">Phone:</strong> +1 (555) 123-4567</p>
+                <p><strong className="text-white">Email:</strong> contact@axanail.com</p>
               </div>
               <Link 
                 href="/contact"

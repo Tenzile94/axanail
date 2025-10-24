@@ -235,8 +235,7 @@ export default function CookiePolicy() {
                 If you have any questions about our use of cookies or this Cookie Policy, please contact us:
               </p>
               <div className="space-y-2 text-gray-300 text-center mb-8">
-                <p><strong className="text-white">Email:</strong> privacy@axaprofessional.com</p>
-                <p><strong className="text-white">Phone:</strong> +1 (555) 123-4567</p>
+                <p><strong className="text-white">Email:</strong> contact@axanail.com</p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link 
