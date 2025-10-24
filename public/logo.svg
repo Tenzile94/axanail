@@ -1,0 +1,59 @@
+<svg width="200" height="60" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gold gradient matching your website theme -->
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#d4af37;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f0d060;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Dark gold for accents -->
+    <linearGradient id="darkGold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#b8941f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d4af37;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Yellow gradient for highlights -->
+    <linearGradient id="yellowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0d060;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffd700;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Shadow gradient -->
+    <linearGradient id="shadow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#000000;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:0.05" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle with subtle shadow -->
+  <circle cx="30" cy="30" r="28" fill="url(#shadow)"/>
+  <circle cx="30" cy="30" r="25" fill="url(#goldGradient)" stroke="#d4af37" stroke-width="2"/>
+  
+  <!-- Diamond/Star shape in the center -->
+  <g transform="translate(30, 30)">
+    <!-- Main diamond with yellow tones -->
+    <path d="M0,-15 L8,-8 L0,-1 L-8,-8 Z" fill="url(#yellowGradient)"/>
+    <path d="M0,1 L8,8 L0,15 L-8,8 Z" fill="url(#yellowGradient)"/>
+    <path d="M-15,0 L-8,-8 L-1,0 L-8,8 Z" fill="url(#yellowGradient)"/>
+    <path d="M1,0 L8,8 L15,0 L8,-8 Z" fill="url(#yellowGradient)"/>
+    
+    <!-- Center dot with gold -->
+    <circle cx="0" cy="0" r="3" fill="url(#darkGold)" opacity="0.8"/>
+    
+    <!-- Shine effect -->
+    <ellipse cx="-3" cy="-3" rx="4" ry="2" fill="#ffd700" opacity="0.6"/>
+  </g>
+  
+  <!-- AXA Text with gold gradient -->
+  <text x="70" y="25" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="url(#goldGradient)" text-anchor="start">
+    AXA
+  </text>
+  
+  <!-- Professional subtitle with yellow tone -->
+  <text x="70" y="45" font-family="Arial, sans-serif" font-size="10" font-weight="300" fill="#f0d060" text-anchor="start" letter-spacing="2px">
+    PROFESSIONAL
+  </text>
+  
+  <!-- Decorative line with yellow gradient -->
+  <line x1="70" y1="50" x2="190" y2="50" stroke="url(#yellowGradient)" stroke-width="2" opacity="0.7"/>
+</svg>

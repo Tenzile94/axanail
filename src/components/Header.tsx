@@ -44,10 +44,11 @@ export default function Header() {
 
           {/* Logo */}
           <div className="flex-1 lg:flex-none text-center lg:text-left">
-            <h1 className="text-3xl font-bold text-gold-gradient tracking-wider">
+            {/* <h1 className="text-3xl font-bold text-gold-gradient tracking-wider">
               AXA
             </h1>
-            <p className="text-xs text-[#d4af37] tracking-[0.3em] font-light">PROFESSIONAL</p>
+            <p className="text-xs text-[#d4af37] tracking-[0.3em] font-light">PROFESSIONAL</p> */}
+            <img src="/logo1.png" alt="AXA Professional" className="w-20 h-16" />
           </div>
 
           {/* Desktop Navigation */}
