@@ -1,0 +1,44 @@
+# ================================================
+# AXA Professional - Email Configuration Template
+# ================================================
+# Copy these variables to your .env.local file
+# AND to Vercel Dashboard → Settings → Environment Variables
+# ================================================
+
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_USER=contact@axanail.com
+EMAIL_PASSWORD=your-app-password-here
+EMAIL_FROM=contact@axanail.com
+EMAIL_TO=contact@axanail.com
+
+# ================================================
+# QUICK SETUP STEPS:
+# ================================================
+
+## 1. LOCAL SETUP (For Testing)
+Create a file named .env.local in your project root and paste the above variables with your real values.
+
+## 2. VERCEL SETUP (For Production)
+Go to: https://vercel.com/dashboard
+1. Select your project
+2. Go to Settings → Environment Variables
+3. Add each variable above (one by one)
+4. Select all environments: Production, Preview, Development
+5. Save and redeploy
+
+## 3. GET YOUR SMTP CREDENTIALS
+Contact your email provider or check:
+- Gmail: smtp.gmail.com port 587 (use App Password)
+- Microsoft 365: smtp.office365.com port 587
+- GoDaddy: smtpout.secureserver.net port 465
+- Check EMAIL_CONFIGURATION_GUIDE.md for more providers
+
+## 4. TEST
+npm run dev
+Go to http://localhost:3000/contact
+Submit a test message
+Check terminal for "✅ Email sent successfully"
+
+# ================================================
+
