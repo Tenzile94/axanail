@@ -89,7 +89,7 @@ export default function Header() {
           </nav>
 
           {/* Contact Info */}
-          <div className="flex items-center space-x-2">
+          <div className="hidden lg:flex items-center space-x-2">
             <Mail size={18} className="text-[#d4af37]" />
             <a 
               href="mailto:info@axaprofessional.com" 
