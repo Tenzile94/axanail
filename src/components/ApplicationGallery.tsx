@@ -41,34 +41,42 @@ const galleryImages: GalleryImage[] = [
     description: 'Precision work with superior control',
     step: 'Shaping',
   },
-  {
+    {
     id: 5,
+    url: '/webp/web2.webp',
+    title: 'Creative Design',
+    description: 'Nail art with AXA excellence',
+    step: 'Nail Art',
+  },
+  {
+    id: 6,
     url: '/webp/nude_gel-min-1000.webp',
     title: 'Classic Style',
     description: 'Timeless beauty with lasting wear',
     step: 'Finishing',
   },
   {
-    id: 6,
-    url: '/webp/milky_gel_6-min-1000.webp',
+    id: 7,
+    url: '/webp/web1.webp',
     title: 'Extensions',
     description: 'Perfect length and durability',
     step: 'Extension',
   },
   {
-    id: 7,
+    id: 8,
     url: '/webp/milky_gel_12-min-1000.webp',
     title: 'Stunning Results',
     description: 'Professional masterpiece finish',
     step: 'Final Look',
   },
   {
-    id: 8,
+    id: 9,
     url: '/webp/milky_gel_14-min-1000.webp',
     title: 'Creative Design',
     description: 'Nail art with AXA excellence',
     step: 'Nail Art',
   },
+ 
 ]
 
 export default function ApplicationGallery() {
