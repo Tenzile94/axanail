@@ -15,56 +15,56 @@ interface GalleryImage {
 const galleryImages: GalleryImage[] = [
   {
     id: 1,
-    url: '/img-min/milky_gel-min.jpg',
+    url: '/webp/milky_gel-min-1000.webp',
     title: 'Milky White Builder',
     description: 'Professional strength for flawless nail extensions',
     step: 'Builder Gel',
   },
   {
     id: 2,
-    url: '/img-min/milky_gel_2-min.jpg',
+    url: '/webp/milky_gel_2-min-1000.webp',
     title: 'Perfect Coverage',
     description: 'Self-leveling formula for smooth application',
     step: 'Application',
   },
   {
     id: 3,
-    url: '/img-min/nude_gel_1-min.jpg',
+    url: '/webp/nude_gel_1-min-1000.webp',
     title: 'Nude Base Gel',
     description: 'Natural elegance with strong adhesion',
     step: 'Base Coat',
   },
   {
     id: 4,
-    url: '/img-min/milky_gel_4-min.jpg',
+    url: '/webp/milky_gel_4-min-1000.webp',
     title: 'Expert Technique',
     description: 'Precision work with superior control',
     step: 'Shaping',
   },
   {
     id: 5,
-    url: '/img-min/nude_gel-min.jpg',
+    url: '/webp/nude_gel-min-1000.webp',
     title: 'Classic Style',
     description: 'Timeless beauty with lasting wear',
     step: 'Finishing',
   },
   {
     id: 6,
-    url: '/img-min/milky_gel_6-min.jpg',
+    url: '/webp/milky_gel_6-min-1000.webp',
     title: 'Extensions',
     description: 'Perfect length and durability',
     step: 'Extension',
   },
   {
     id: 7,
-    url: '/img-min/milky_gel_12-min.jpg',
+    url: '/webp/milky_gel_12-min-1000.webp',
     title: 'Stunning Results',
     description: 'Professional masterpiece finish',
     step: 'Final Look',
   },
   {
     id: 8,
-    url: '/img-min/milky_gel_14-min.jpg',
+    url: '/webp/milky_gel_14-min-1000.webp',
     title: 'Creative Design',
     description: 'Nail art with AXA excellence',
     step: 'Nail Art',
@@ -85,7 +85,7 @@ export default function ApplicationGallery() {
             onClick={() => setSelectedImage(image)}
           >
             {/* Image */}
-            <div className="aspect-[4/3] overflow-hidden bg-zinc-800 relative">
+            <div className="aspect-[4/3]  overflow-hidden bg-zinc-800 relative">
               <Image
                 src={image.url}
                 alt={image.title}

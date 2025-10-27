@@ -6,13 +6,13 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 const carouselImages = [
   {
     // url: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?w=1920&h=1080&fit=crop',
-    url: '/img-min/nude_gel_bg.jpg',
+    url: '/webp/nude_gel_bg-1920.webp',
     title: 'AXA Builder Gel',
     subtitle: 'Professional strength. Superior control. Flawless architecture.',
     product: 'BUILDER GEL',
   },
   {
-    url: '/img-min/gel-bg2.jpg',
+    url: '/webp/pink-bg-1920.webp',
     title: 'AXA Base Gel',
     subtitle: 'Strong adhesion. Long-lasting wear. Reliable performance.',
     product: 'BASE GEL',
