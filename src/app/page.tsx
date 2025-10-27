@@ -569,7 +569,10 @@ export default function Home() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
           style={{
-            backgroundImage: 'url(/bundle-min.jpg)',
+            backgroundImage: 'url(./webp/bundle-min-1920.webp)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+            ,
           }}
         >
           {/* Dark Overlay */}
