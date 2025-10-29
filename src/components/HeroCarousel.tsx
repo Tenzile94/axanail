@@ -83,16 +83,18 @@ export default function HeroCarousel() {
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-[#d4af37]/20 hover:bg-[#d4af37]/40 backdrop-blur-sm text-[#d4af37] p-3 rounded-full transition-all duration-300 hover:scale-110 border border-[#d4af37]/30"
+        className="hidden md:block absolute z-[100] left-4 top-1/2 -translate-y-1/2 bg-[#d4af37]/20 hover:bg-[#d4af37]/40 backdrop-blur-sm text-[#d4af37] p-3 rounded-full transition-all duration-300 hover:scale-110 border border-[#d4af37]/30"
         aria-label="Previous slide"
+        style={{ zIndex: 100 }}
       >
         <ChevronLeft size={24} />
       </button>
 
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-[#d4af37]/20 hover:bg-[#d4af37]/40 backdrop-blur-sm text-[#d4af37] p-3 rounded-full transition-all duration-300 hover:scale-110 border border-[#d4af37]/30"
+        className="hidden md:block absolute right-4 top-1/2 -translate-y-1/2 z-[100] bg-[#d4af37]/20 hover:bg-[#d4af37]/40 backdrop-blur-sm text-[#d4af37] p-3 rounded-full transition-all duration-300 hover:scale-110 border border-[#d4af37]/30"
         aria-label="Next slide"
+        style={{ zIndex: 100 }}
       >
         <ChevronRight size={24} />
       </button>

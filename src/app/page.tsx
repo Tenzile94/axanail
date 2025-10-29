@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
-import { products, bundles } from '@/data/products'
+import Link from 'next/link'
+import { products } from '@/data/products'
 import ProductCard from '@/components/ProductCard'
 import BundleCard from '@/components/BundleCard'
 import HeroCarousel from '@/components/HeroCarousel'
@@ -60,68 +61,8 @@ const advantages = [
   },
 ]
 
-const bestsellers = [
-  {
-    id: 1,
-    name: 'Milky White Builder',
-    description: 'Perfect coverage builder gel with a natural milky finish for elegant French and overlay applications.',
-    volume: '50 ml',
-    imageClosed: '/products/milkywhite.jpeg',
-    imageOpened: '/products/milky2.jpeg',
-    altText: 'Milky White Builder Gel',
-    priority: true,
-  },
-  {
-    id: 2,
-    name: 'Nude Cover Base',
-    description: 'Universal nude base with excellent coverage and self-leveling properties for flawless natural looks.',
-    volume: '50 ml',
-    imageClosed: '/products/nude.jpeg',
-    imageOpened: '/products/nude2.jpeg',
-    altText: 'Nude Cover Base Gel',
-    priority: false,
-  },
-  {
-    id: 3,
-    name: 'Pink Builder',
-    description: 'Classic pink builder gel with superior strength and flexibility for durable nail extensions.',
-    volume: '50 ml',
-    imageClosed: '/products/pink.jpeg',
-    imageOpened: '/products/pink2.jpeg',
-    altText: 'Pink Builder Gel',
-    priority: false,
-  },
-  {
-    id: 4,
-    name: 'Strong Base Gel',
-    description: 'Ultimate adhesion base coat providing long-lasting wear and protection for natural nails.',
-    volume: '30 ml',
-    imageClosed: '/products/strongbase.jpeg',
-    imageOpened: '/products/strongbase2.jpeg',
-    altText: 'Strong Base Gel',
-    priority: false,
-  },
-  {
-    id: 5,
-    name: 'Mirror Top Coat',
-    description: 'High-gloss no-wipe top coat delivering brilliant mirror shine and superior scratch resistance.',
-    volume: '30 ml',
-    imageClosed: '/products/topcoat2.jpeg',
-    imageOpened: '/products/topcoat.jpeg',
-    altText: 'Mirror Top Coat',
-    priority: false,
-  },
-  {
-    id: 6,
-    name: 'Crystal Clear Builder',
-    description: 'Transparent builder gel with exceptional clarity for encapsulations and artistic nail designs.',
-    volume: '50 ml',
-    imageClosed: '/products/transparent.jpeg',
-    imageOpened: '/products/transparent2.jpeg',
-    altText: 'Crystal Clear Builder',
-    priority: false,
-  },
-]
+// Use products from the data file instead of local array
+const bestsellers = products.slice(0, 6) // Take first 6 products as bestsellers
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -144,9 +85,9 @@ export default function Home() {
         <HeroCarousel />
         
         {/* Content Overlay */}
-        <div className="absolute inset-0 z-10">
+        <div className="absolute inset-0 z-10 pointer-events-none">
           <div className="container mx-auto px-4 h-full flex items-center">
-            <div className="max-w-4xl">
+            <div className="max-w-4xl pointer-events-auto">
               {heroSlides.map((slide, index) => (
                 <div
                   key={index}
@@ -170,7 +111,7 @@ export default function Home() {
                   <p className="text-xl lg:text-3xl mb-10 text-gray-300 drop-shadow-lg max-w-3xl font-light leading-relaxed">
                     {slide.subtitle}
                   </p>
-                  <div className="flex flex-col sm:flex-row gap-5">
+                  <div className="flex flex-col sm:flex-row gap-5 pointer-events-auto">
                     <a 
                       href="/contact"
                       className="bg-gradient-to-r from-[#d4af37] to-[#f0d060] text-black px-10 py-5 rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-[#d4af37]/50 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3 uppercase tracking-wide"
@@ -191,10 +132,10 @@ export default function Home() {
         {/* Floating Contact Button */}
         <a 
           href="/contact"
-          className="fixed bottom-8 right-8 z-50 bg-gradient-to-r from-[#d4af37] to-[#f0d060] text-black p-5 rounded-full shadow-2xl hover:shadow-[#d4af37]/50 hover:scale-110 transition-all duration-300 flex items-center gap-2 font-bold group"
+          className="fixed bottom-8 right-8 z-50 bg-gradient-to-r from-[#d4af37] to-[#f0d060] text-black rounded-full shadow-2xl hover:shadow-[#d4af37]/50 hover:scale-110 transition-all duration-300 flex items-center justify-center gap-2  min-w-14 h-14 px-4 font-bold group overflow-hidden"
         >
-          <Mail size={24} />
-          <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 whitespace-nowrap">
+          <Mail size={24} className="flex-shrink-0 ml-2" />
+          <span className="max-w-0 overflow-hidden group-hover:max-w-[100px] transition-all duration-300 whitespace-nowrap">
             Contact
           </span>
         </a>
@@ -362,7 +303,7 @@ export default function Home() {
                   Professional strength. Superior control. Flawless architecture for extensions and nail art.
                 </p>
                 <a 
-                  href="/contact"
+                  href="/products/transparent-builder"
                   className="inline-flex items-center gap-2 text-[#d4af37] font-bold group-hover:gap-4 transition-all duration-300"
                 >
                   Learn More 
@@ -401,7 +342,7 @@ export default function Home() {
                   Strong adhesion. Long-lasting wear. Reliable performance as the foundation of excellence.
                 </p>
                 <a 
-                  href="/contact"
+                  href="/products/strong-base"
                   className="inline-flex items-center gap-2 text-[#d4af37] font-bold group-hover:gap-4 transition-all duration-300"
                 >
                   Learn More 
@@ -440,7 +381,7 @@ export default function Home() {
                   Mirror shine. No wipe. No compromises. The perfect finish for flawless results.
                 </p>
                 <a 
-                  href="/contact"
+                  href="/products/no-wipe-top-coat"
                   className="inline-flex items-center gap-2 text-[#d4af37] font-bold group-hover:gap-4 transition-all duration-300"
                 >
                   Learn More 
@@ -475,19 +416,19 @@ export default function Home() {
               >
                 <div className="aspect-square overflow-hidden bg-zinc-800 relative">
                   <Image 
-                    src={product.imageClosed} 
-                    alt={product.altText}
+                    src={product.images.thumb} 
+                    alt={product.title}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover absolute inset-0 transition-opacity duration-1000 ease-in-out group-hover:opacity-0"
-                    priority={product.priority}
+                    priority={product.featured}
                     quality={85}
                     placeholder="blur"
                     blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAKAAoDASIAAhEBAxEB/8QAFwABAAMAAAAAAAAAAAAAAAAAAAECA//EABQQAQAAAAAAAAAAAAAAAAAAAAD/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJMCMLAAX//Z"
                   />
                   <Image 
-                    src={product.imageOpened} 
-                    alt={`${product.altText} - Opened`}
+                    src={product.images.main} 
+                    alt={`${product.title} - Main`}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out group-hover:opacity-100"
@@ -496,23 +437,31 @@ export default function Home() {
                   />
                 </div>
                 <div className="p-8">
+                  <div className="flex items-center gap-2 mb-3">
+                    {product.badge && (
+                      <span className="bg-[#d4af37]/20 text-[#d4af37] px-2 py-1 rounded-full text-xs font-bold border border-[#d4af37]/40">
+                        {product.badge}
+                      </span>
+                    )}
+                    <span className="text-gray-400 text-sm">{product.type}</span>
+                  </div>
                   <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[#d4af37] transition-colors">
-                    {product.name}
+                    {product.title}
                   </h3>
                   <p className="text-gray-400 mb-4 leading-relaxed">
-                    {product.description}
+                    {product.short}
                   </p>
                   <div className="flex items-center gap-2 mb-6">
                     <span className="text-[#d4af37] font-bold text-lg">Volume:</span>
-                    <span className="text-white font-semibold text-lg">{product.volume}</span>
+                    <span className="text-white font-semibold text-lg">{product.volumeMl}ml</span>
                   </div>
-                  <a 
-                    href="/contact"
-                    className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#d4af37] to-[#f0d060] text-black px-6 py-4 rounded-full font-bold hover:shadow-lg hover:shadow-[#d4af37]/50 hover:scale-105 transition-all duration-300 uppercase tracking-wide"
+                  <Link
+                    href={product.slug}
+                    className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#d4af37] to-[#f0d060] text-black px-6 py-4 rounded-full font-bold hover:shadow-lg hover:shadow-[#d4af37]/50 hover:scale-105 transition-all duration-300 uppercase tracking-wide group"
                   >
-                    <Mail size={20} />
-                    Contact Us
-                  </a>
+                    View Details
+                    <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform duration-300" />
+                  </Link>
                 </div>
               </div>
             ))}
