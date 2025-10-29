@@ -2,7 +2,8 @@
 
 import { useState } from 'react'
 import { Menu, X, Search, ShoppingBag, Heart, User, Mail } from 'lucide-react'
-
+import Image from 'next/image'
+import Link from 'next/link'
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -33,7 +34,7 @@ export default function Header() {
 
       {/* Main Header */}
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between py-5">
+        <div className="flex items-center justify-between py-4">
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -43,13 +44,18 @@ export default function Header() {
           </button>
 
           {/* Logo */}
-          <div className="flex-1 lg:flex-none text-center lg:text-left">
-            {/* <h1 className="text-3xl font-bold text-gold-gradient tracking-wider">
-              AXA
-            </h1>
-            <p className="text-xs text-[#d4af37] tracking-[0.3em] font-light">PROFESSIONAL</p> */}
-            <img src="/logo1.png" alt="AXA Professional" className="w-20 h-16" />
-          </div>
+           <Link href="/" className="">
+            <Image 
+              src="/Logo.svg" 
+              alt="AXA — Aesthetics. Xperience. America." 
+              width={180}
+              height={40}
+              className="h-16 w-40 object-cover drop-shadow-md hover:scale-105 transition-transform duration-300"
+            />
+          </Link>
+
+          
+
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8 flex-1 justify-center">

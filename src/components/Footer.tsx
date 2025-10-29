@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* About */}
           <div>
-            <img src="/logo1.png" alt="AXA Professional" className="w-20 h-16" />
+            <img src="/axa-logo-horizontal.svg" alt="AXA Professional" className="h-16 w-auto" />
             <p className="text-sm mb-6 text-gray-400 leading-relaxed mt-4">
               Professional nail gel systems trusted by experts worldwide. Superior quality, flawless results, uncompromising excellence.
             </p>

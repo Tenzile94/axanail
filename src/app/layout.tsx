@@ -26,10 +26,10 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon-axa.svg', type: 'image/svg+xml' },
     ],
     apple: [
-      { url: '/favicon.svg', sizes: '180x180', type: 'image/svg+xml' },
+      { url: '/favicon-axa.svg', sizes: '180x180', type: 'image/svg+xml' },
     ],
   },
 }
@@ -43,7 +43,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* Favicon */}
-        <link rel="icon" href="/favicon.svg" type="image/png+xml" />
+        <link rel="icon" href="/favicon-axa.svg" type="image/svg+xml" />
         {/* <link rel="icon" href="/favicon-16x16.png" sizes="16x16" type="image/png+xml" />
         <link rel="apple-touch-icon" href="/favicon.png" sizes="180x180" /> */}
         
