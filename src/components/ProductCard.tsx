@@ -1,7 +1,7 @@
 'use client'
 
 import { Heart, ShoppingCart } from 'lucide-react'
-import { Product } from '@/data/products'
+import { Product } from '../data/product.types'
 import { useState } from 'react'
 
 interface ProductCardProps {
@@ -48,7 +48,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           <div className="absolute inset-0 flex items-center justify-center">
             <div
               className="w-24 h-32 rounded-lg shadow-xl transition-transform duration-300"
-              style={{ backgroundColor: product.color }}
+              style={{ backgroundColor: product.colorHex }}
             />
           </div>
         </div>
@@ -57,9 +57,9 @@ export default function ProductCard({ product }: ProductCardProps) {
       {/* Content */}
       <div className="p-4">
         <div className="mb-2">
-          <p className="text-xs text-gray-500 uppercase tracking-wide">{product.category}</p>
+          <p className="text-xs text-gray-500 uppercase tracking-wide">{product.type}</p>
           <h3 className="text-lg font-semibold text-gray-900 group-hover:text-primary-600 transition-colors">
-            {product.name}
+            {product.title}
           </h3>
         </div>
 
@@ -67,34 +67,19 @@ export default function ProductCard({ product }: ProductCardProps) {
         <div className="flex items-center gap-2 mb-3">
           <div
             className="w-6 h-6 rounded-full border-2 border-gray-200 shadow-sm"
-            style={{ backgroundColor: product.color }}
+            style={{ backgroundColor: product.colorHex }}
           />
           <span className="text-xs text-gray-500">
-            {product.color}
+            {product.shade}
           </span>
         </div>
 
         {/* Price */}
         <div className="flex items-center justify-between mb-3">
           <div>
-            <span className="text-2xl font-bold text-gray-900">${product.price}</span>
-            {product.originalPrice && (
-              <span className="ml-2 text-sm text-gray-500 line-through">
-                ${product.originalPrice}
-              </span>
-            )}
+            <span className="text-2xl font-bold text-gray-900">${product.volumeMl}</span>
           </div>
         </div>
-
-        {/* Add to Cart Button */}
-        {/* <button
-          className={`w-full bg-gradient-to-r from-primary-600 to-secondary-600 text-white py-2 px-4 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all duration-300 ${
-            isHovered ? 'opacity-100 translate-y-0' : 'opacity-90'
-          } hover:shadow-lg hover:scale-105`}
-        >
-          <ShoppingCart size={18} />
-          <span>Add to Cart</span>
-        </button> */}
       </div>
     </div>
   )
