@@ -1,4 +1,6 @@
 'use client'
+import Link from 'next/link'
+import Image from 'next/image'
 
 import { Facebook, Instagram, Twitter, Youtube, Mail, Phone, MapPin } from 'lucide-react'
 
@@ -10,7 +12,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* About */}
           <div>
-            <img src="/axa-logo-horizontal.svg" alt="AXA Professional" className="h-16 w-auto" />
+            <Link href="/">
+            <Image src="/Logo.svg" alt="AXA Professional" width={180} height={40} className="h-16 w-40 object-cover drop-shadow-md hover:scale-105 transition-transform duration-300" />
+            </Link>
             <p className="text-sm mb-6 text-gray-400 leading-relaxed mt-4">
               Professional nail gel systems trusted by experts worldwide. Superior quality, flawless results, uncompromising excellence.
             </p>

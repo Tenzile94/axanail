@@ -38,13 +38,13 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden text-white hover:text-[#d4af37] transition-colors"
+            className="lg:hidden text-white hover:text-[#d4af37] transition-colors z-10"
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
 
-          {/* Logo */}
-           <Link href="/" className="">
+          {/* Logo - Centered on mobile, left on desktop */}
+           <Link href="/" className="absolute left-1/2 -translate-x-1/2 lg:relative lg:left-0 lg:translate-x-0">
             <Image 
               src="/Logo.svg" 
               alt="AXA — Aesthetics. Xperience. America." 
