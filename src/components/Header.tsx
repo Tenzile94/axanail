@@ -46,7 +46,7 @@ export default function Header() {
           {/* Logo - Centered on mobile, left on desktop */}
            <Link href="/" className="absolute left-1/2 -translate-x-1/2 lg:relative lg:left-0 lg:translate-x-0">
             <Image 
-              src="/lgo.svg" 
+              src="/ivory.svg" 
               alt="AXA — Aesthetics. Xperience. America." 
               width={180}
               height={40}

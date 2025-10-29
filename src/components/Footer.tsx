@@ -13,7 +13,7 @@ export default function Footer() {
           {/* About */}
           <div>
             <Link href="/">
-            <Image src="/lgo.svg" alt="AXA Professional" width={180} height={40} className="h-16 w-40 object-cover drop-shadow-md hover:scale-105 transition-transform duration-300" />
+            <Image src="/ivory.svg" alt="AXA Professional" width={180} height={40} className="h-16 w-40 object-cover drop-shadow-md hover:scale-105 transition-transform duration-300" />
             </Link>
             <p className="text-sm mb-6 text-gray-400 leading-relaxed mt-4">
               Professional nail gel systems trusted by experts worldwide. Superior quality, flawless results, uncompromising excellence.
