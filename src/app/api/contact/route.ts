@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 
 export async function GET() {
   return NextResponse.json({ success: true, message: "API is working!" });
@@ -30,24 +30,22 @@ export async function POST(req: Request) {
       );
     }
 
-    console.log("📨 Preparing to send email...");
+    // Validate Resend API key
+    const resendApiKey = process.env.RESEND_API_KEY;
+    if (!resendApiKey) {
+      console.error("❌ RESEND_API_KEY is not set in environment variables");
+      return NextResponse.json(
+        { success: false, message: "Email service not configured" },
+        { status: 500 }
+      );
+    }
 
-    // Use the correct environment variables from your .env.local
-    const transporter = nodemailer.createTransport({
-      host: process.env.EMAIL_HOST || "smtp.office365.com",
-      port: Number(process.env.EMAIL_PORT) || 465,
-      secure: false, // Use STARTTLS for port 587
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASSWORD,
-      },
-      tls: {
-        rejectUnauthorized: false, // Allow self-signed certificates
-        minVersion: 'TLSv1.2',
-      },
-    });
+    console.log("📨 Preparing to send email via Resend...");
 
-    console.log("✅ Nodemailer transporter created, sending email...");
+    // Initialize Resend
+    const resend = new Resend(resendApiKey);
+
+    console.log("✅ Resend client initialized, sending email...");
 
     // Create HTML email template
     const htmlContent = `
@@ -122,8 +120,8 @@ ${message}
 ═══════════════════════════════════════
     `;
 
-    await transporter.sendMail({
-      from: process.env.EMAIL_FROM || process.env.EMAIL_USER,
+    const { data, error } = await resend.emails.send({
+      from: process.env.EMAIL_FROM || "onboarding@resend.dev",
       to: process.env.EMAIL_TO || "contact@axanail.com",
       replyTo: email,
       subject: `🔔 New Contact: ${product || 'Inquiry'} - ${name}`,
@@ -131,14 +129,25 @@ ${message}
       text: textContent,
     });
 
-    console.log("📤 Email sent successfully!");
+    if (error) {
+      console.error("❌ Resend error:", error);
+      return NextResponse.json(
+        {
+          success: false,
+          message: `Failed to send email: ${error.message || "Unknown error"}`,
+        },
+        { status: 500 }
+      );
+    }
+
+    console.log("📤 Email sent successfully via Resend! ID:", data?.id);
 
     return NextResponse.json(
       { success: true, message: "Email sent successfully!" },
       { status: 200 }
     );
   } catch (error: unknown) {
-    console.error("❌ Nodemailer error:", error);
+    console.error("❌ Resend error:", error);
     return NextResponse.json(
       {
         success: false,
