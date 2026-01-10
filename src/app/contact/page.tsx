@@ -247,38 +247,7 @@ export default function ContactPage() {
                     </div>
                     </div>
 
-                  {/* Phone and Company */}
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="phone" className="block text-sm font-bold text-white mb-3 uppercase tracking-wider">
-                        Phone Number
-                      </label>
-                      <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        className="w-full px-5 py-4 bg-black border-2 border-zinc-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-[#d4af37] transition-all"
-                        placeholder="+1 (555) 123-4567"
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="address" className="block text-sm font-bold text-white mb-3 uppercase tracking-wider">
-                        Your Address
-                      </label>
-                      <input
-                        type="text"
-                        id="address"
-                        name="address"
-                        value={formData.address}
-                        onChange={handleChange}
-                        className="w-full px-5 py-4 bg-black border-2 border-zinc-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-[#d4af37] transition-all"
-                        placeholder="Your City or Full Address"
-                      />
-                    </div>
-                  </div>
+                
 
                   {/* Product Interest */}
                   <div>

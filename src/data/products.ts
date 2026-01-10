@@ -178,7 +178,7 @@ export const products: Product[] = [
     type: "Base Gel",
     shade: "Clear",
     colorHex: "#F7F7F7",
-    volumeMl: 50,
+    volumeMl: 30,
     images: {
       thumb: "/products/strongbase.jpeg",
       main: "/products/strongbase2.jpeg"
@@ -233,7 +233,7 @@ export const products: Product[] = [
     type: "Top Coat",
     shade: "Clear Gloss",
     colorHex: "#FFFFFF",
-    volumeMl: 50,
+    volumeMl: 30,
     images: {
       thumb: "/products/topcoat.jpeg",
       main: "/products/topcoat2.jpeg"
