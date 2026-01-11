@@ -1,14 +1,33 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Menu, X, Search, ShoppingBag, Heart, User, Mail } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter, usePathname } from 'next/navigation'
+
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const router = useRouter()
+  const pathname = usePathname()
 
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault()
+    
+    // If we're not on the home page, navigate there first
+    if (pathname !== '/') {
+      router.push(`/#${targetId}`)
+      // The useEffect will handle scrolling after navigation
+    } else {
+      // We're already on the home page, just scroll
+      scrollToElement(targetId)
+    }
+    
+    // Close mobile menu if open
+    setIsMenuOpen(false)
+  }
+
+  const scrollToElement = (targetId: string) => {
     const element = document.getElementById(targetId)
     if (element) {
       const headerOffset = 100 // Account for sticky header
@@ -19,11 +38,31 @@ export default function Header() {
         top: offsetPosition,
         behavior: 'smooth'
       })
-      
-      // Close mobile menu if open
-      setIsMenuOpen(false)
     }
   }
+
+  // Handle hash navigation when landing on home page from another page
+  useEffect(() => {
+    if (pathname === '/') {
+      const hash = window.location.hash.slice(1) // Remove the # symbol
+      if (hash) {
+        // Use requestAnimationFrame and a small delay to ensure page is fully rendered
+        const scrollToHash = () => {
+          const element = document.getElementById(hash)
+          if (element) {
+            scrollToElement(hash)
+          } else {
+            // Retry if element not found yet (page still loading)
+            setTimeout(scrollToHash, 50)
+          }
+        }
+        // Wait for next frame to ensure DOM is ready
+        requestAnimationFrame(() => {
+          setTimeout(scrollToHash, 100)
+        })
+      }
+    }
+  }, [pathname])
 
   return (
     <header className="sticky top-0 z-50 bg-black/95 backdrop-blur-lg border-b border-[#d4af37]/20">
@@ -132,7 +171,7 @@ export default function Header() {
               Products
             </a>
             <a
-              href="#about"
+              href="/#about"
               onClick={(e) => handleSmoothScroll(e, 'about')}
               className="block text-gray-300 hover:text-[#d4af37] transition-colors font-medium uppercase text-sm cursor-pointer"
             >
